@@ -28,7 +28,7 @@ public class Main {
                     bankAccount.checkBalance();
                     isInputing = true;
                     oldInput = input;
-                    break;
+                    break; //
             }
         }
     }
