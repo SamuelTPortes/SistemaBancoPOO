@@ -33,6 +33,8 @@ public class BankAccount {
     public void deposit(float quantity){
         changeBalance(quantity);
         System.out.printf("Você depositou um total de R$ %.2f " + " Seu saldo atual é de R$ %.2f\n",quantity,getBalance());
+        payYourDebt();
+
     }
 
     public void withdraw(float quantity){
@@ -56,7 +58,7 @@ public class BankAccount {
                 changeBalance(-value);
 
                 if(!usingSpecialCheck) isUsingSpecialCheck();
-
+                specialCheck = balance;
                 System.out.printf("Você pagou um boleto no total de R$ %.2f " + " Seu saldo atual é de R$ %.2f\n",value,getBalance());
             }
         } else{
@@ -88,10 +90,16 @@ public class BankAccount {
         System.out.println("valor acumulado" + accumulatedSpecialCheck*0.2f);
     }
 
-    private void payYourDebt(float value){
-        if(getBalance() + value >= accumulatedSpecialCheck){
-
-        }
+    private void payYourDebt(){
+        if(usingSpecialCheck){
+            float valueToDebt;
+            System.out.println("Valor utilizado do cheque especial: " + accumulatedSpecialCheck);
+            System.out.println("Quantidade que será descontada: " + accumulatedSpecialCheck *0.2f);
+            valueToDebt = (accumulatedSpecialCheck *0.2f);
+            balance -=valueToDebt;
+            accumulatedSpecialCheck = 0;
+            System.out.printf("Com o desconto, seu saldo atual agora é: R$ %.2f\n", getBalance());
+        } else System.out.println("Você não estava usando o cheque especial então não terá desconto no depósito");
     }
 
 }

@@ -63,6 +63,9 @@ public class Main {
                     break;
                 case "sair":
                     break;
+                default:
+                    isInputing = true;
+                    break;
             }
 
         }
