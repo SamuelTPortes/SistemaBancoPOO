@@ -37,6 +37,7 @@ public class BankAccount {
             payYourDebt(quantity);
             System.out.println("Você estava utilizando o cheque especial, será descontado 20% do total usado do que foi depositado agora!\n Seu saldo agora é de " + getBalance());
             usingSpecialCheck = false;
+
         }
     }
 

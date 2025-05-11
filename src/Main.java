@@ -50,6 +50,7 @@ public class Main {
                     float value2 = sc.nextFloat();
                     bankAccount.payBill(value2);
                     isInputing = true;
+
                     break;
                 case "verificar cheque":
                     bankAccount.usingSpecialCheck();
